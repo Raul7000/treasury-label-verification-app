@@ -5,6 +5,12 @@ This project is a prototype web application developed for the U.S. Department of
 
 The application allows a user to upload an image of an alcohol label, performs Optical Character Recognition (OCR) on the image, and verifies whether required compliance language is present.
 
+Approach
+
+This prototype demonstrates how Optical Character Recognition (OCR) can assist Treasury compliance agents by automatically extracting text from alcohol beverage labels and verifying selected compliance-related information.
+The application accepts uploaded label images, extracts text using Tesseract OCR, and evaluates the extracted text against selected compliance checks.
+Results are displayed to the user along with the extracted text for review.
+
 Features
 Upload alcohol label images
 Extract text using Tesseract OCR
