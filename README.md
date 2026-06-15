@@ -57,6 +57,9 @@ OCR accuracy depends on image quality.
 Blurry or poorly lit images may reduce text recognition accuracy.
 This prototype demonstrates proof-of-concept functionality and is not intended for production use.
 Additional compliance rules could be added in future iterations.
+
+OCR functionality requires Tesseract OCR to be installed and accessible to the application environment. OCR processing was successfully tested locally using Tesseract OCR version 5.5.0.
+
 Repository
 
 GitHub Repository:
