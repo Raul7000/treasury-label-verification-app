@@ -57,9 +57,10 @@ GitHub Repository:
 
 https://github.com/Raul7000/treasury-label-verification-app
 
-Step 3
+Deployed Application
 
-After pasting it:
+https://treasury-label-verification-app.onrender.com
 
-Click Commit changes...
-Don't commit yet if GitHub asks for a message.
+
+
+
