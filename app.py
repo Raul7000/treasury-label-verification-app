@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, send_from_directory
 import os
 import pytesseract
-from PIL import Image
+from PIL import Image, ImageOps
 
 app = Flask(__name__)
 
@@ -25,7 +25,8 @@ def home():
             file.save(filepath)
 
             image = Image.open(filepath)
-
+            image = ImageOps.exif_transpose(image)
+            
             extracted_text = pytesseract.image_to_string(image)
             verification_results = ""
 
