@@ -26,40 +26,44 @@ def home():
 
             image = Image.open(filepath)
             image = ImageOps.exif_transpose(image)
-            
+
             extracted_text = pytesseract.image_to_string(image)
             verification_results = ""
 
-        if ("government warning" in extracted_text.lower()
-            or "should not" in extracted_text.lower()
-            or "birth defects" in extracted_text.lower()):
-            verification_results += "✓ Government Warning Found<br>"
-        else:
-            verification_results += "✗ Government Warning Missing<br>"
+            if ("government warning" in extracted_text.lower()
+                or "should not" in extracted_text.lower()
+                or "birth defects" in extracted_text.lower()):
+                verification_results += "✓ Government Warning Found\n"
+            else:
+                verification_results += "✗ Government Warning Missing\n"
 
+                
             
-          
-        if "750" in extracted_text:
-            verification_results += "✓ Net Contents Found<br>"
+            net_contents = [
+                "50 ml",
+                "200 ml",
+                "375 ml",
+                "500 ml",
+                "720 ml",
+                "750 ml",
+                "1 l",
+                "1.75 l"
+            ]
 
-        if "product of japan" in extracted_text.lower():
-            verification_results += "✓ Country of Origin Found<br>"
+            if any(size in extracted_text.lower() for size in net_contents):
+                verification_results += "✓ Net Contents Found\n"
+            else:
+                verification_results += "✗ Net Contents Missing\n"
 
-        return f"""
-        <h1>File uploaded successfully!</h1>
+            if "product of japan" in extracted_text.lower():
+                verification_results += "✓ Country of Origin Found\n"
 
-        <p>{file.filename}</p>
-
-        <img src="/uploads/{file.filename}" width="400">
-
-        <h2>Verification Results</h2>
-
-        <p>{verification_results}</p>
-
-        <h2>Extracted Text</h2>
-
-        <pre>{extracted_text}</pre>
-        """
+            return render_template(
+                "index.html",
+                filename=file.filename,
+                verification_results=verification_results,
+                extracted_text=extracted_text
+            )
 
 
     return render_template('index.html')
