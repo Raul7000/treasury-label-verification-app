@@ -37,17 +37,16 @@ def home():
             else:
                 verification_results += "✗ Government Warning Missing\n"
 
-                
-            
+                       
             net_contents = [
-                "50 ml",
-                "200 ml",
-                "375 ml",
-                "500 ml",
-                "720 ml",
-                "750 ml",
-                "1 l",
-                "1.75 l"
+                "50 ml", "50ml",
+                "200 ml", "200ml",
+                "375 ml", "375ml",
+                "500 ml", "500ml",
+                "720 ml", "720ml",
+                "750 ml", "750ml", "750m!",
+                "1 l", "1l",
+                "1.75 l", "1.75l"
             ]
 
             if any(size in extracted_text.lower() for size in net_contents):
@@ -56,7 +55,7 @@ def home():
                 verification_results += "✗ Net Contents Missing\n"
 
             if "product of japan" in extracted_text.lower():
-                verification_results += "✓ Country of Origin Found\n"
+                verification_results += "✓ Country of Origin Found\n" 
 
             return render_template(
                 "index.html",
