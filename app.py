@@ -29,14 +29,16 @@ def home():
 
             extracted_text = pytesseract.image_to_string(image)
             verification_results = ""
-
-            if ("government warning" in extracted_text.lower()
-                or "should not" in extracted_text.lower()
-                or "birth defects" in extracted_text.lower()):
+            text = extracted_text.lower()
+            
+            
+            if ("government warning" in text
+               or "should not" in text
+               or "birth defects" in text):
                 verification_results += "✓ Government Warning Found\n"
             else:
                 verification_results += "✗ Government Warning Missing\n"
-
+            
                        
             net_contents = [
                 "50 ml", "50ml",
@@ -49,13 +51,15 @@ def home():
                 "1.75 l", "1.75l"
             ]
 
-            if any(size in extracted_text.lower() for size in net_contents):
+            if any(size in text for size in net_contents):
                 verification_results += "✓ Net Contents Found\n"
             else:
                 verification_results += "✗ Net Contents Missing\n"
 
-            if "product of japan" in extracted_text.lower():
-                verification_results += "✓ Country of Origin Found\n" 
+            if "product of japan" in text or "japan" in text:
+                verification_results += "✓ Country of Origin Found\n"
+            else:
+                verification_results += "✗ Country of Origin Missing\n"
 
             return render_template(
                 "index.html",
