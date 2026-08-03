@@ -22,7 +22,7 @@ This project demonstrates how OCR technology can assist compliance personnel by 
 
 ## Project Background
 
-This project was originally developed as part of a technical assessment for the U.S. Department of the Treasury. It has since been expanded into a portfolio project demonstrating practical experience with OCR, Python web development, Docker, and cloud deployment.
+This project was originally developed as part of a technical assessment for a U.S. Department of the Treasury IT Specialist (AI) application. It has since evolved into a portfolio project demonstrating OCR, Python, Flask, Docker, Git, GitHub, and cloud deployment using Render.
 
 ---
 
@@ -38,6 +38,7 @@ This project was originally developed as part of a technical assessment for the 
 - Display verification results in a clear, easy-to-read format
 - Run locally or inside a Docker container
 - Deploy the application to Render
+- Test OCR against multiple front and back label images
 
 ---
 
@@ -145,6 +146,23 @@ The application is deployed on Render and can be accessed online:
 The screenshot below shows the application processing an alcohol beverage label. Optical Character Recognition (OCR) extracts the label text and verifies the presence of the Government Warning, Net Contents, and Country of Origin.
 
 ![Treasury Label Verification Application](application-screenshot.png)
+
+---
+
+## OCR Test Dataset
+
+The repository includes front and back label images for multiple alcohol beverage products used to test OCR extraction and Treasury label verification.
+
+Front and back label images allow the application to be tested against multiple label layouts and provide broader OCR coverage for real-world product labeling scenarios.
+
+Current sample products include:
+
+- Taiyozakari
+- Heaven Hill
+- Rihaku
+- Yamazaki
+
+These sample images provide a diverse OCR testing dataset and help validate text extraction across different label designs, layouts, fonts, and product formats.
 
 ---
 
